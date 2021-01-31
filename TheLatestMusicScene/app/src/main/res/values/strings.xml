@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">The Latest Music Scene</string>
+    <string name="titleText">The Latest Music Scene</string>
+    <string name="StoryOneTitle">Max Cavalera Launches New Death Metal Band</string>
+    <string name="StoryTwoTitle">Brian ‘Head’ Welch: Korn Have ‘Exciting News’ Coming After ‘Throwing Around’ Ideas</string>
+    <string name="readMore">Read More!</string>
+    <string name="storyOneContent">Sepultura / Soulfly / Cavalera Conspiracy legend Max Cavalera has started yet another new band, Go Ahead and Die, this time blending death and thrash metal with some extra influence from punk rock and early Celtic Frost. Along with Max’s son Igor Amadeus Cavalera, Khemmis / Black Curse drummer Zach Coleman rounds out the new power trio. \"One of a kind father/son collaboration bringing the old school with a new attitude!\” Max raves. \“Sick riffs and abrasive lyrics from Igor and brutal drumming from Zach Coleman inspired me! Extreme times call for extreme music!\""</string>
+    <string name="storyTwoContent">"One thing that is for certain in 2021 is that there is going to be a historic amount of new music that comes out. Korn\'s Brian \'Head\' Welch reunited his Love and Death band recently, with a new album on the way, and now he\'s begun to tease something on behalf of Korn as well, promising \"exciting news.\" Head, when discussing Love and Death's first new album in eight years, Perfectly Preserved, played it close to the vest as he divulged to Kerrang! that something was also brewing on the Korn homefront."</string>
+</resources>

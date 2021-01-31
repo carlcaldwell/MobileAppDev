@@ -1,14 +1,14 @@
-package com.example.musicnews;
+package com.example.thelatestmusicscene;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class StoryOne extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_story_one);
+        setContentView(R.layout.activity_main);
     }
 }

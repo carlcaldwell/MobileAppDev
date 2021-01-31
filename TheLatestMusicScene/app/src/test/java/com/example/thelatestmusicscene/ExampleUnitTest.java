@@ -1,4 +1,4 @@
-package com.example.musicnews;
+package com.example.thelatestmusicscene;
 
 import org.junit.Test;
 

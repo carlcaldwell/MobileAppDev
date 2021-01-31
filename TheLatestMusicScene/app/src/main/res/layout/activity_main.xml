@@ -14,17 +14,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imgStoryTwo"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="10dp"
@@ -40,14 +37,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/txtStoryTwoSmallTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/StoryTitleTwo"
+                android:text="@string/StoryTwoTitle"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/btnStoryTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/readMore" />
@@ -70,13 +67,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgStoryOne"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:contentDescription="@string/StoryTitleTwo"
+            android:contentDescription="@string/StoryTwoTitle"
             app:srcCompat="@drawable/max_cavalera" />
 
         <LinearLayout
@@ -86,14 +83,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/txtStoryOneSmallTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/StoryOneTitle"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnStoryOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/readMore" />
