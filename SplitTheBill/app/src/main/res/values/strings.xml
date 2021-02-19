@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Split The Bill</string>
+    <string name="titleText">Split The Bill</string>
+    <string name="hint_billAmt">Enter the Bill Amount</string>
+    <string name="hint_partySize">Number of People In Party</string>
+    <string name="btn_submit">Calculate</string>
+    <string name="totalBillText" />
+    <string name="txtTipHelp">Enter Tip Amount (%)</string>
+    <string-array name="tipAmts">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+</resources>
