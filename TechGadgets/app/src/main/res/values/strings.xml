@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tech Gadgets</string>
+    <string name="imgDescHeadphones">Headphones</string>
+    <string name="txtPrice">$120.99</string>
+    <string name="headphoneName">Bluetooth Headphones</string>
+    <string name="btnText">Check it Out Online!</string>
+    <string name="imgDescMonitor">Monitor</string>
+    <string name="monitorName">Monitor 144Hz</string>
+    <string name="txtPrice2">$258.98</string>
+    <string name="imgUsb">Usb Cable</string>
+    <string name="usbName">USB Cable</string>
+    <string name="txtPrice3">$29.99</string>
+    <string name="imgDescHdmi">Hdmi Switcher</string>
+    <string name="hdmiName">HDMI Switcher</string>
+    <string name="txtPrice4">$25.49</string>
+    <string name="imgDescMouse">RGB Mouse</string>
+    <string name="mouseName">RGB Mouse</string>
+    <string name="txtPrice5">$10.95</string>
+</resources>
