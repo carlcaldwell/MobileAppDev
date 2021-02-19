@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Power Tool Rental</string>
+    <string name="numOfDays">Number of Days</string>
+    <string name="powerWasher">Power Washer - $55.99/day</string>
+    <string name="tiller">Tiller - $69.99/day</string>
+    <string name="computeButton">Calculate Cost</string>
+</resources>
