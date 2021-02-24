@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
 
         // change screen to main activity
         Timer opening = new Timer();
-        opening.schedule(task, 2000);
+        opening.schedule(task, 1000);
 
     }
 }

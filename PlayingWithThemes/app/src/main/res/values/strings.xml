@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Playing With Themes</string>
+    <string name="playBtn">Play</string>
+    <string name="pauseBtn">Pause</string>
+    <string name="stopBtn">Stop</string>
+    <string name="Iz">Iz</string>
 </resources>
