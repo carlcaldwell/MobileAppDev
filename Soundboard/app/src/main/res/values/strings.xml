@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Soundboard</string>
+    <string name="titleText">The Kirsten Markley Soundboard</string>
+    <string name="haw50">Hawaii 5.0</string>
+    <string name="goodPractice">I Think That\'s Good Practice</string>
+    <string name="previousVideo">Previous Video</string>
+    <string name="stopIt">Stop It</string>
+    <string name="iCantGoBack">I Can\'t Go Back</string>
+    <string name="randomly">Just Randomly Create Objects</string>
+    <string name="wontWork">The Button Won\'t Work</string>
+    <string name="seeYaThere">See Ya There</string>
+    <string name="inThisVideo">In This Video</string>
+    <string name="somewhere">Somewhere Over The Rainbow</string>
+</resources>
