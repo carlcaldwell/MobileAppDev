@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Amtrak</string>
+    <string name="timeTitle">Boarding Time</string>
+    <string name="hours">Hour (24h)</string>
+    <string name="minute">Minute</string>
+    <string name="duration">Trip Duration (Minutes)</string>
+    <string name="Calculate">Calculate</string>
+    <string name="amtrkalogl">Amtrak Logo</string>
+    <string name="arriveLabel">You\'r Train Will Arrive At</string>
+    <string name="haveAnotherTrain">Calculate Again!</string>
+    <string name="redeye">Caution! Red Eye!</string>
+    <string name="redeyeimg">Red Eye image</string>
+    <string name="hourhint">HH</string>
+    <string name="minutehint">MM</string>
+</resources>
