@@ -9,4 +9,5 @@
     <string name="playagain">Play Again?</string>
     <string name="yourscore">Your Score Is</string>
     <string name="winningimage">final image</string>
+    <string name="by">BY: Carl Caldwell</string>
 </resources>
