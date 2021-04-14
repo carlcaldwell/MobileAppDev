@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cat API</string>
+    <string name="title">HTTP Cats</string>
+    <string name="submitBtn">Show Me The Cat!!!</string>
+    <string name="catImg">cat image</string>
+    <string name="error">HTTP Status Code:</string>
+</resources>
