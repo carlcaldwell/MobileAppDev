@@ -2,6 +2,8 @@ package com.example.catapi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,7 +13,11 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +53,21 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Code not found. Please select another", Toast.LENGTH_LONG).show();
             }
         });
+
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        List<Address> addresses = null;
+        try {
+            addresses = geocoder.getFromLocationName("OTC Springfield mo", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Address address = addresses.get(0);
+        double longitude = address.getLongitude();
+        double latitude = address.getLatitude();
+        String food = address.getFeatureName();
+        System.out.println("lon:"+longitude);
+        System.out.println("lat:"+latitude);
+        System.out.println("name: "+address.toString());
     }
 
     private boolean isAllowed(int code){
