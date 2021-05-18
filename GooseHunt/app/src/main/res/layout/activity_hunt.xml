@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#4bc7fa"
     android:focusable="true"
-    tools:context=".MainActivity">
+    tools:context=".Hunt">
 
     <ImageView
         android:id="@+id/gooseImg"
@@ -29,6 +29,7 @@
         android:cropToPadding="false"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bg" />
 

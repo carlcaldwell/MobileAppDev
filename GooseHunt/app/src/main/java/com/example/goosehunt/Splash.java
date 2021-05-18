@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,6 +14,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // change to the main menu after 4 seconds
         Timer t = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -25,7 +25,7 @@ public class Splash extends AppCompatActivity {
         };
 
 
-        t.schedule(task, 2000);
+        t.schedule(task, 4000);
 
     }
 }

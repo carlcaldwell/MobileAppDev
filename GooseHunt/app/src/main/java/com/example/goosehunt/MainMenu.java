@@ -10,21 +10,19 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import com.squareup.picasso.Picasso;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -38,9 +36,6 @@ public class MainMenu extends AppCompatActivity {
     private static final int ACCESS_FINE_LOCATION = 44;
     TextView conditionTxt, temperatureTxt, errorText;
     ImageView weatherImage;
-    private StringRequest stringRequest;
-    // Queue for our API request
-    private RequestQueue queue;
     String REQUEST_URL = "https://api.weatherapi.com/v1/current.json?key=dcd9a3f09502487395c201931211605&q=";
     String REQUEST_URL_END = "&aqi=no";
 
@@ -49,17 +44,17 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        // hook widgets
         conditionTxt = findViewById(R.id.condition);
         temperatureTxt = findViewById(R.id.temperature);
         errorText = findViewById(R.id.errorText);
         weatherImage = findViewById(R.id.weatherImage);
-
         Button b = findViewById(R.id.startHuntingBtn);
+
+        // listen for the start game button click
         b.setOnClickListener(e->{
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, Hunt.class));
         });
-
-
 
         // GET THE USERS LOCATION
         //Initialize fusedLocationProviderClient
@@ -67,11 +62,8 @@ public class MainMenu extends AppCompatActivity {
         //Check to see if you have permission, if not request it. This will ask the user for permission
         //if checkForLocationPermission is true, then permission is already granted, otherwise the method will ask the user for permission
         if (checkForLocationPermission()) {
-            getLocation();
+            getLocation(); // if successful, this method will use a weather api to get the weather conditions for the player's location
         }
-
-        // SEND API REQUEST
-        queue = Volley.newRequestQueue(this.getApplicationContext());
 
     }
 
@@ -80,39 +72,45 @@ public class MainMenu extends AppCompatActivity {
     ///    API REQUEST     //
     //////////////////////////////////////////////////////
 
-    // Get Request For JSONObject
-    public void getData(double lat, double lon){
-
+    // Send a GET request for the player's current weather conditions
+    public void getWeather(double lat, double lon){
+        // if in dev, dont sent the request to save on limitations for free accounts
         if(isDev){
             errorText.setText("Dev mode. No Display");
             return;
         }
+        // create the GET request
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        try {
-            JSONObject object = new JSONObject();
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, REQUEST_URL+lat+","+lon+REQUEST_URL_END, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        JSONObject current = response.getJSONObject("current");
-                        int temp = (int)current.getDouble("temp_f");
-                        JSONObject condition = current.getJSONObject("condition");
-                        String strCondition = condition.getString("text");
-                        temperatureTxt.setText(temp+"");
-                        conditionTxt.setText(strCondition);
-                        Picasso.with(MainMenu.this).load("https:"+condition.getString("icon")).into(weatherImage);
-                        return;
-                    } catch (JSONException e) {
-                        errorText.setText("Error Getting Weather from API");
-                    }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, REQUEST_URL+lat+","+lon+REQUEST_URL_END, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                // on success, this code block will execute
+                try {
+                    // parse the int from the return
+                    int temp = (int)response.getJSONObject("current").getDouble("temp_f");
+                    // parse the weather condition text from the return
+                    String condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
+                    // parse the icon url from the return
+                    String iconUrl = "https:"+response.getJSONObject("current").getJSONObject("condition").getString("icon");
+
+                    // put the items where they belong
+                    temperatureTxt.setText(temp+"");
+                    conditionTxt.setText(condition);
+                    // load the weather icon
+                    Picasso.with(MainMenu.this).load(iconUrl).into(weatherImage);
+                    return;
+                } catch (JSONException e) {
+                    errorText.setText("Error parsing weather conditions");
                 }
-            }, error -> {
-                System.out.println(error.toString());
-            });
-            requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            }
+        }, error -> {
+            // did not return 200 status
+            System.out.println("Error Getting Weather from API");
+        });
+
+        // Send the request
+        requestQueue.add(jsonObjectRequest);
+
     }
 
 
@@ -138,8 +136,7 @@ public class MainMenu extends AppCompatActivity {
 
     //This method is called after the user accepts or declines the permission request for location.
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case ACCESS_FINE_LOCATION:
                 // If request is cancelled, the result arrays are empty.
@@ -188,8 +185,8 @@ public class MainMenu extends AppCompatActivity {
                                 location.getLatitude(), location.getLongitude(), 1
                         );
 
-                        //Set latitude on TextView
-                        getData(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+                        // get the weather from the lat/lon
+                        getWeather(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
 
                     } catch (IOException e) {
                         e.printStackTrace();
